@@ -1,0 +1,220 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px;
+    background-color: black;
+    height: 100vh;
+}
+
+.main-login,
+.main-register {
+    background-image: url('./../../img/family-road-trip-canvapro-111-road-trip-movies-768x512.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.main_body-login,
+.main_body-register {
+    border-radius: 5px;
+    left: 35%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 500px;
+}
+
+.main_body-login {
+    top: 20%;
+    height: 400px;
+}
+
+.main_body-register {
+    top: 15%;
+    height: 670px;
+}
+
+.text_register,
+.text_login {
+    font-size: 50px;
+    margin: 0px 0px 20px 0px;
+}
+
+.text_register {
+    color: black;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.text_login {
+    font-weight: 900;
+}
+
+.active {
+    display: none;
+}
+
+.container_input_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input_text {
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 20px;
+    width: 80%;
+    outline: 0px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.placeholder-before {
+    position: absolute;
+    padding: 0px 5px;
+    left: 5px;
+    top: 50%;
+    /* Quan trọng  */
+    pointer-events: none;
+    transform: translateY(-70%);
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.form-group .input_text:focus {
+    border: 2px solid #1a73e8;
+}
+
+.form-group .input_text:focus+.placeholder-before,
+.form-group .input_text:valid+.placeholder-before {
+    top: 0px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a73e8;
+}
+
+.input_text#btn-login {
+    background: #1a73e8;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input_text#btn-login:hover {
+    opacity: 0.85;
+}
+
+.container_input_text_birthday,
+.container_input_text_sex {
+    display: flex;
+    width: 400px;
+    align-items: baseline;
+}
+
+.container_input_text_birthday>p,
+.container_input_text_sex>p {
+    margin-right: 20px;
+}
+
+.check_and_forgot {
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 15px;
+    justify-content: space-around;
+}
+
+.btn_check {
+    color: black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.have_account {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.have_account:hover {
+    color: #ff0000;
+}
+
+.container_login_and_register {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+}
+
+.button_register,
+.button_login,
+.button_register {
+    display: flex;
+    font-weight: 500;
+    border: 0px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_register,
+.button_login {
+    background: #2e2d31;
+}
+
+.button_register:hover,
+.button_login:hover,
+.button_register:hover {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.a-button_login_and_register {
+    text-decoration: none;
+}
+
+.btn_check input {
+    display: none;
+}
+
+.btn_check .checkbox {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #000;
+    border-radius: 47%;
+    cursor: pointer;
+}
+
+.btn_check input:checked+.checkbox:after {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    content: "";
+    background: #000;
+    top: 1px;
+    left: 1px;
+    border-radius: 50%;
+}

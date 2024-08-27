@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="main_body-login">
+            <div class="header">
+                <p class="text_login">
+                    LOGIN
+                </p>
+            </div>
+
+            <div class="container_input_text">
+                <div class="form-group">
+                    <input class="input_text" type="text" name="uname" required>
+                    <label class="placeholder-before">Username</label>
+                </div>
+
+                <div class="form-group">
+                    <input class="input_text" type="password" name="uname" required>
+                    <label class="placeholder-before">Password</label>
+                </div>
+
+            </div>
+            <div class="check_and_forgot">
+                <div class="btn_check">
+                    <input type="checkbox" name="remember_me" id="rememberme">
+                    <label class="checkbox" for="rememberme"></label>
+                    <label class="checkbox_label" for="rememberme">Remember me</label>
+                </div>
+                <a class="psw" href="#">Forgot password?</a>
+            </div>
+            <div class="container_login_and_register">
+                <button class="button_login">
+                    Login
+                </button>
+
+                <button class="button_register">
+                    Register
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <div class="main-register active">
+        <div class="main_body-register">
+            <div class="header">
+                <p class="text_register">
+                    REGISTER
+                </p>
+            </div>
+
+            <div class="container_input_text">
+                <div class="form-group">
+                    <input class="input_text" type="text" name="uname" required>
+                    <label class="placeholder-before">Username</label>
+                </div>
+
+                <div class="form-group">
+                    <input class="input_text" type="password" name="pword" required>
+                    <label class="placeholder-before">Password</label>
+                </div>
+
+                <div class="form-group">
+                    <input class="input_text" type="password" name="passauth" placeholder=" " required>
+                    <label class="placeholder-before">Password Authentication</label>
+                </div>
+
+                <div class="form-group">
+                    <input class="input_text" type="text" name="email" required>
+                    <label class="placeholder-before">Email</label>
+                </div>
+
+                <div class="form-group">
+                    <input class="input_text" type="text" name="phone" required>
+                    <label class="placeholder-before">Number Phone</label>
+                </div>
+
+
+
+                <div class="container_input_text_birthday">
+                    <p>Birthday:</p>
+                    <input type="date" name="birthday" />
+                </div>
+                <div class="container_input_text_sex">
+                    <p>Giới tính:</p>
+                    <input type="radio" name="gender" value="male" checked>
+                    <p>Male</p>
+                    <input type="radio" name="gender" value="female">
+                    <p>Female</p>
+                    <input type="radio" name="gender" value="other">
+                    <p>Other</p>
+                </div>
+            </div>
+            <div class="check_and_forgot">
+                <div class="btn_check">
+                    <input type="checkbox" name="site_terms" id="site_terms">
+                    <label class="checkbox" for="site_terms"></label>
+                    <label class="checkbox_label" for="site_terms">I accept the site's terms</label>
+                </div>
+                <div class="have_account">I already have an account</div>
+            </div>
+            <div>
+                <button class="button_register">
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script defer src="../js/login.js"></script>
