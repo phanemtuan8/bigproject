@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.6.0-web/css/all.css">
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -55,7 +58,7 @@
     <div class="main-register active">
         <div class="main_body-register">
             <div class="header">
-                <p class="tekkxt_register">
+                <p class="text_register">
                     REGISTER
                 </p>
             </div>
@@ -64,56 +67,60 @@
                 <div class="form-group">
                     <input class="input_text" type="text" name="uname" id="uname" required>
                     <label class="placeholder-before">Username</label>
+                    <span class="errMSG" id="txt_uname"></span>
                 </div>
 
                 <div class="form-group">
                     <input class="input_text" type="password" name="pword" id="password" required>
                     <label class="placeholder-before">Password</label>
+                    <span class="errMSG" id="txt_password"></span>
                 </div>
 
                 <div class="form-group">
                     <input class="input_text" type="password" name="passauth" placeholder=" " id="passauth" required>
                     <label class="placeholder-before">Password Authentication</label>
+                    <span class="errMSG" id="txt_passauth"></span>
                 </div>
 
                 <div class="form-group">
                     <input class="input_text" type="text" name="email" id="email" required>
                     <label class="placeholder-before">Email</label>
+                    <span class="errMSG" id="txt_email"></span>
                 </div>
 
                 <div class="form-group">
                     <input class="input_text" type="text" name="phone" id="phone" required>
                     <label class="placeholder-before">Number Phone</label>
+                    <span class="errMSG" id="txt_phone"></span>
                 </div>
-
-
 
                 <div class="container_input_text_birthday">
                     <p>Birthday:</p>
                     <input type="date" name="birthday" />
                 </div>
+
                 <div class="container_input_text_sex">
-                    <p>Giới tính:</p>
+                    <p>Gender:</p>
                     <input type="radio" name="gender" value="male" checked>
-                    <p>Male</p>
+                    <label>Male</label>
                     <input type="radio" name="gender" value="female">
-                    <p>Female</p>
+                    <label>Female</label>
                     <input type="radio" name="gender" value="other">
-                    <p>Other</p>
+                    <label>Other</label>
                 </div>
-            </div>
-            <div class="check_and_forgot">
-                <div class="btn_check">
-                    <input type="checkbox" name="site_terms" id="site_terms">
-                    <label class="checkbox" for="site_terms"></label>
-                    <label class="checkbox_label" for="site_terms">I accept the site's terms</label>
+
+                <div class="check_and_forgot">
+                    <div class="btn_check">
+                        <input type="checkbox" name="site_terms" id="site_terms">
+                        <label class="checkbox" for="site_terms"></label>
+                        <label class="checkbox_label" for="site_terms">I accept the site's terms</label>
+                    </div>
+                    <div class="have_account">I already have an account</div>
                 </div>
-                <div class="have_account">I already have an account</div>
-            </div>
-            <div>
-                <button class="button_register2">
-                    Register
-                </button>
+
+                <div>
+                    <button class="button_register2" type="button">Register</button>
+                </div>
             </div>
         </div>
     </div>

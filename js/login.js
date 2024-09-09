@@ -18,84 +18,75 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-//them vao yeu cau khi dang ky
-document.addEventListener('DOMContentLoaded', function() {
+document.querySelector('.button_register2').addEventListener('click', function() {
+    const form = document.getElementById('myForm');
     const unameInput = document.getElementById('uname');
+    const passwordInput = document.getElementById('password');
+    const passAuthInput = document.getElementById('passauth');
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
-    const passwordInput = document.getElementById('password');
-    const passauthInput = document.getElementById('passauth');
-    const registerButton = document.querySelector('.button_register2');
 
+    const errorUname = document.getElementById('txt_uname');
+    const errorPassword = document.getElementById('txt_password');
+    const errorPassauth = document.getElementById('txt_passauth');
+    const errorEmail = document.getElementById('txt_email');
+    const errorPhone = document.getElementById('txt_phone');
 
-    function validateUname() {
-        if (unameInput.value === '') {
-            unameInput.style.border = '2px solid red';
-            return false;
-        } else {
-            unameInput.style.border = '2px solid #1a73e8';
-            return true;
-        }
+    let valid = true;
+
+    // Kiểm tra Username
+    if (unameInput.value.trim() === '') {
+        errorUname.textContent = 'Username không được bỏ trống';
+        errorUname.style.display = 'inline';
+        valid = false;
+    } else {
+        errorUname.style.display = 'none';
     }
 
-    // Function to validate email
-    function validateEmail() {
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-        if (!emailPattern.test(emailInput.value)) {
-            emailInput.style.border = '2px solid red';
-            return false;
-        } else {
-            emailInput.style.border = '2px solid #1a73e8';
-            return true;
-        }
+    // Kiểm tra Password
+    const passwordValue = passwordInput.value;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!passwordRegex.test(passwordValue)) {
+        errorPassword.textContent = 'Có ít nhất 1 chữ hoa, 1 chữ thường, và 1 số.';
+        errorPassword.style.display = 'inline';
+        valid = false;
+    } else {
+        errorPassword.style.display = 'none';
     }
 
-    // Function to validate phone number
-    function validatePhone() {
-        const phonePattern = /^[0-9]*$/;
-        if (phoneInput.value === '' || !phonePattern.test(phoneInput.value)) {
-            phoneInput.style.border = '2px solid red';
-            return false;
-        } else {
-            phoneInput.style.border = '2px solid #1a73e8';
-            return true;
-        }
+    // Kiểm tra Password Authentication
+    if (passAuthInput.value !== passwordValue) {
+        errorPassauth.textContent = 'Password Authentication phải khớp với Password.';
+        errorPassauth.style.display = 'inline';
+        valid = false;
+    } else {
+        errorPassauth.style.display = 'none';
     }
 
-    // Function to validate password
-    function validatePassword() {
-        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-        if (!passwordPattern.test(passwordInput.value)) {
-            passwordInput.style.border = '2px solid red';
-            return false;
-        } else {
-            passwordInput.style.border = '2px solid #1a73e8';
-            return true;
-        }
+    // Kiểm tra Email
+    const emailValue = emailInput.value;
+    if (!emailValue.includes('@')) {
+        errorEmail.textContent = 'Email phải chứa ký tự @.';
+        errorEmail.style.display = 'inline';
+        valid = false;
+    } else {
+        errorEmail.style.display = 'none';
     }
 
-    // Function to validate password authentication
-    function validatePasswordAuth() {
-        if (passauthInput.value === '' || passauthInput.value !== passwordInput.value) {
-            passauthInput.style.border = '2px solid red';
-            return false;
-        } else {
-            passauthInput.style.border = '2px solid #1a73e8';
-            return true;
-        }
+    // Kiểm tra Phone
+    const phoneValue = phoneInput.value;
+    const phoneRegex = /^\d{9,10}$/;
+    if (!phoneRegex.test(phoneValue)) {
+        errorPhone.textContent = 'Số điện thoại phải có 9 hoặc 10 chữ số.';
+        errorPhone.style.display = 'inline';
+        valid = false;
+    } else {
+        errorPhone.style.display = 'none';
     }
 
-    // Click event for the register button
-    registerButton.addEventListener('click', function(event) {
-        const isUnameValid = validateUname();
-        const isEmailValid = validateEmail();
-        const isPhoneValid = validatePhone();
-        const isPasswordValid = validatePassword();
-        const isPassAuthValid = validatePasswordAuth();
-
-        // Prevent form submission if any validation fails
-        if (!isEmailValid || !isPhoneValid || !isPasswordValid || !isPassAuthValid || !isUnameValid) {
-            event.preventDefault(); // Prevent the form from submitting
-        }
-    });
+    if (valid) {
+        form.submit(); // Gửi biểu mẫu nếu tất cả các trường hợp lệ
+    } else {
+        alert('Vui lòng sửa lỗi trong các trường bắt buộc.');
+    }
 });
