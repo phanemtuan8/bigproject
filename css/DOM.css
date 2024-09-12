@@ -1,0 +1,54 @@
+body {
+    background-color: #e9e9e9;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+}
+
+.header {
+    height: 400px;
+    background-image: url('../img/home-banner/collection_banner.webp');
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main {
+    height: fit-content;
+    width: 100%;
+    padding: 0px 100px;
+}
+
+.container-fluid {
+    padding: 0px 100px;
+}
+
+.menu-item {
+    padding: 2px 15px
+}
+
+.menu-item:hover {
+    background-color: rgb(82, 82, 82);
+    padding: 2px 15px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    margin-left: 20px;
+}
+
+.navbar-expand-sm.bg-dark.navbar-dark.align-center {
+    position: static;
+    top: 0px;
+}

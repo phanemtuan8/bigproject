@@ -14,7 +14,7 @@ body {
 .main {
     height: fit-content;
     width: 100%;
-    padding: 0px 100px;
+    padding: 0px 300px;
 }
 
 .container-fluid {
@@ -34,7 +34,7 @@ body {
 }
 
 .navbar {
-    padding: 0px;
+    padding: 0px !important;
 }
 
 .navbar-left {
@@ -69,7 +69,7 @@ body {
 
 .menu-item-sub li:hover a {
     text-decoration: none;
-    color: #8c8c8c !important;
+    color: #8c8c8c;
 }
 
 .menu-item-sub li {
@@ -93,76 +93,44 @@ body {
     margin-left: 20px;
 }
 
-.swiper {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+
+/*----------------------------------------------------*/
+
+.page_now {
+    padding: 20px;
+    font-size: 20px;
 }
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
+.advertisement img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.sum_camera {
+    padding: 0px 20px;
+    height: 75px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    max-height: 600px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 20px;
+    color: #56565f;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.swiper-button-next {
-    left: 45px !important;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    top: 30px !important;
-    color: #fff;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 25px;
-}
-
-.main-qc {
-    padding: 50px 0px 0px 0px;
-}
-
-.a-main-qc img {
-    width: 100%;
-}
-
-.title-camera-slick {
-    padding: 50px 0px 25px 0px;
-}
-
-.slick-prev:before,
-.slick-next:before {
-    color: black !important;
-}
-
-.slick-list {
-    padding: 0 10px;
-    /* Đảm bảo padding bên trong slider để khoảng trống không bị cắt */
-    border-radius: 15px;
+.list-camera-item {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .camera-item {
-    width: 5%;
+    width: 25%;
     background-color: #ffffff;
     display: flex;
-    justify-content: center;
     margin: 0 10px;
     padding: 10px 0px;
     border-radius: 15px;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .camera-item:hover {
@@ -173,6 +141,7 @@ body {
     background-color: #ffffff;
     display: flex;
     justify-content: center;
+    height: 50%;
 }
 
 .camera-item img {
@@ -181,8 +150,10 @@ body {
 
 .text-camera-item {
     display: flex;
-    height: fit-content;
+    height: 170px;
     flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
 }
 
 .name-camera {
@@ -216,8 +187,10 @@ body {
 
 .gift-camera {
     display: flex;
-    justify-content: flex-end;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
 }
 
 .gift-camera i {
@@ -230,95 +203,29 @@ body {
     padding: 3px 25px 3px 8px;
 }
 
-.status-new {
-    width: 100%;
+.before_after_page {
     display: flex;
-    justify-content: space-around;
+    padding: 30px 0px 30px 50px;
 }
 
-.status-new-item {
-    background-color: #ffffff;
-    border-radius: 15px;
-    width: 300px;
-    overflow: hidden
+.now_page {
+    padding: 3px 10px;
+    border: 2px solid #515151;
+    margin: 0px 10px;
+    border-radius: 10px;
 }
 
-.img-status-item {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
+.before_after_page button {
+    border-radius: 10px;
 }
 
-.img-status-item a img {
-    width: 100%;
-}
 
-.text-status-item {
-    padding: 15px;
-}
-
-.text-status-item .text-muted {
-    display: -webkit-box;
-    /* Required for line clamping */
-    -webkit-line-clamp: 3;
-    /* Number of lines to show */
-    -webkit-box-orient: vertical;
-    /* Required for line clamping */
-    overflow: hidden;
-    /* Hides the overflowed content */
-    text-overflow: ellipsis;
-    /* Adds ellipsis (...) */
-    line-height: 1.5;
-    /* Optional: adjusts line height */
-    max-height: 4.5em;
-}
-
-.title-customer-reviews {
-    padding-bottom: 20px;
-}
-
-.customer-reviews {
-    background-color: #ffffff;
-    margin: 30px 0px;
-    border-radius: 15px;
-    padding: 30px;
-}
-
-.customer-reviews-account {
-    display: flex;
-}
-
-.customer-reviews-img {
-    border-radius: 50%;
-    width: 60px;
-}
-
-.customre-reviews-name-rating {
-    padding: 0px 20px;
-}
-
-.customre-reviews-name {
-    font-size: 18px;
-    font-weight: 650;
-}
-
-.customre-reviews-rating {
-    font-size: 12px;
-}
-
-.customer-reviews-comment {
-    padding: 12px 0px;
-}
-
-.col-md-4 {
-    padding: 20px
-}
+/*----------------------------------------------------*/
 
 .footer {
     /* background-color: #f8f9fa; */
     border-top: 1px solid #56565f;
     padding: 40px 0;
-    margin: 0px 100px;
 }
 
 .footer h5 {
