@@ -1,98 +1,3 @@
-body {
-    background-color: #e9e9e9;
-}
-
-.header {
-    height: 400px;
-    background-image: url('../img/home-banner/collection_banner.webp');
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-}
-
-.main {
-    height: fit-content;
-    width: 100%;
-    padding: 0px 100px;
-}
-
-.container-fluid {
-    padding: 0px 100px;
-}
-
-.menu-item {
-    padding: 2px 15px
-}
-
-.menu-item:hover {
-    color: #8c8c8c !important;
-}
-
-.container-fluid {
-    padding: 0px;
-}
-
-.navbar {
-    padding: 0px;
-}
-
-.navbar-left {
-    display: flex;
-}
-
-.navbar-left div {
-    padding: 12px 20px;
-}
-
-.menu-item-more {}
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown:hover .menu-item-sub {
-    display: block !important;
-}
-
-.menu-item-sub {
-    position: absolute;
-    top: 57px;
-    left: -40px;
-    display: none;
-    width: 270px;
-}
-
-.menu-item-sub li:hover {
-    display: block;
-}
-
-.menu-item-sub li:hover a {
-    text-decoration: none;
-    color: #8c8c8c !important;
-}
-
-.menu-item-sub li {
-    padding: 20px 20px;
-    background-color: #343a40;
-    list-style: none;
-}
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.menu-item-sub li a {
-    color: #ffffff;
-    font-size: 16px;
-}
-
-.btn:not(:disabled):not(.disabled) {
-    margin-left: 20px;
-}
-
 .swiper {
     width: 100%;
     height: 100%;
@@ -181,8 +86,10 @@ body {
 
 .text-camera-item {
     display: flex;
-    height: fit-content;
+    height: 170px;
     flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
 }
 
 .name-camera {
@@ -216,8 +123,10 @@ body {
 
 .gift-camera {
     display: flex;
-    justify-content: flex-end;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
 }
 
 .gift-camera i {

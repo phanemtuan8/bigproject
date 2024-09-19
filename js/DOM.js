@@ -1,15 +1,23 @@
 function headerweb() {
-    return `    <div class="header" style="margin-bottom:0">
-    </div>
+    return `
 
-    <nav class="navbar-expand-sm bg-dark navbar-dark sticky-top align-center">
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid text-light">
                 <div class="navbar-left">
-                    <a class="navbar-brand menu-item m-0">Home</a>
-                    <a class="navbar-brand menu-item m-0">Máy Ảnh</a>
-                    <a class="navbar-brand menu-item m-0">Khuyến Mãi</a>
-                    <a class="navbar-brand menu-item m-0">Tin Tức</a>
+                    <div><a class="navbar-brand menu-item m-0" href="./home.html">Home</a></div>
+                    <div class="dropdown">
+                        <a class="navbar-brand menu-item m-0 menu-item-more" href=""><i class="fa-solid fa-chevron-down"></i> Máy Ảnh </a>
+                        <ul class="menu-item-sub">
+                            <li class="menu-item"><a href="./camera-DSLR.html">Máy Ảnh DSLR</a></li>
+                            <li class="menu-item"><a href="./camera-Mirrorless.html">Máy Ảnh Mirrorless</a></li>
+                            <li class="menu-item"><a href="./camera-Compact.html">Máy Ảnh Compact</a></li>
+                            <li class="menu-item"><a href="./camera-Instax.html">Máy Ảnh Instax</a></li>
+                            <li class="menu-item"><a href="./camera-Medium-Format.html">Máy Ảnh Medium Format</a></li>
+                            <li class="menu-item"><a href="./camera-Film.html">Máy Ảnh Film</a></li>
+                        </ul>
+                    </div>
+                    <div><a class="navbar-brand menu-item m-0" href="./promotion.html">Khuyến Mãi</a></div>
+                    <div><a class="navbar-brand menu-item m-0" href="./news.html">Tin Tức</a></div>
                 </div>
 
                 <div class="navbar-right col-4">
@@ -23,12 +31,12 @@ function headerweb() {
                     </a>
                 </div>
             </div>
-        </nav>
-    </nav>`;
+        </nav>`;
 }
 
 function footerweb() {
     return ``
+    $
 }
 
 let containers = document.getElementsByClassName("headerweb");
