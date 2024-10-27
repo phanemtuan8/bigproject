@@ -1,3 +1,7 @@
+body {
+    background-color: #dedede !important;
+}
+
 img {
     transition: transform 0.3s ease;
     object-fit: cover;

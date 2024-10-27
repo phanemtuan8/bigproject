@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="../css/DOM.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick-theme.css" />
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        /* style.css */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .product-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 0 0 10px;
+            object-fit: cover;
+            max-width: 400px;
+        }
+        
+        .product-info {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .product-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-price,
+        .product-old-price,
+        .product-discount,
+        .product-gift {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        
+        .current-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .discount-amount {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .gift-info {
+            color: #3498db;
+        }
+        
+        .add-to-cart-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: #fff;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .main {
+            height: fit-content;
+            width: 100%;
+            padding: 0px 100px;
+            padding: 100px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .footer {
+            border-top: 1px solid #56565f;
+            padding: 40px 0;
+            margin: 0px 100px;
+            position: fixed;
+            bottom: 0px;
+            width: calc(100% - 200px);
+        }
+        
+        .footer h5 {
+            font-weight: bold;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer .contact-us {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer .social-icons a {
+            margin-right: 15px;
+            color: #333;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar-expand-sm bg-dark navbar-dark sticky-top align-center headerweb"></nav>
+    <div class="main">
+        <div class="product-detail-container">
+            <div class="product-image">
+                <img id="product-image" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <h1 id="product-name" class="product-title"></h1>
+                <p class="product-price">
+                    Giá hiện tại: <span id="product-price" class="current-price"></span>
+                </p>
+                <p class="product-old-price">
+                    Giá cũ: <span id="product-old-price" class="old-price"></span>
+                </p>
+                <p class="product-discount">
+                    Giảm giá: <span id="product-discount" class="discount-amount"></span>
+                </p>
+                <p class="product-gift">
+                    Quà tặng kèm: <span id="product-gift" class="gift-info"></span>
+                </p>
+                <button id="add-to-cart-btn">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron text-center footer" style="margin-bottom:0">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: Contact Information -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-us">
+                        <div><span class="label">Address:</span> IUH, SAI GON, VIET NAM</div>
+                        <div><span class="label">Phone:</span> (84) 355-095-013</div>
+                        <div><span class="label">Email:</span> phananhtuan302@gmail.com</div>
+                    </ul>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Social Media -->
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                        <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                        <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                        <a href="#" class="fab fa-linkedin-in" aria-label="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <p>&copy; 2024 Cong Ty cua Tuan va Khai nha :D.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = JSON.parse(localStorage.getItem('selectedProduct'));
+            if (product) {
+                document.getElementById('product-image').src = product.imageUrl;
+                document.getElementById('product-name').innerText = product.name;
+                document.getElementById('product-price').innerText = product.price;
+                document.getElementById('product-old-price').innerText = product.oldPrice;
+                document.getElementById('product-discount').innerText = product.discount;
+                document.getElementById('product-gift').innerText = product.gift;
+            }
+        });
+
+        document.getElementById("add-to-cart-btn").addEventListener("click", function() {
+            const productId = localStorage.getItem("selectedProductId");
+            const productDetails = JSON.parse(localStorage.getItem("selectedProduct"));
+
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+            const existingItem = cartItems.find(item => item.id === productId);
+
+            if (existingItem) {
+                // Nếu sản phẩm đã có, kiểm tra tên sản phẩm
+                if (existingItem.name === productDetails.name) {
+                    // Nếu tên trùng, tăng số lượng lên 1
+                    existingItem.quantity += 1;
+                } else {
+                    // Nếu tên không trùng, thêm sản phẩm mới vào giỏ hàng
+                    cartItems.push({
+                        id: productId,
+                        name: productDetails.name,
+                        price: parseFloat(productDetails.price.replace(/[^0-9]+/g, "")), // Lấy giá trị số
+                        quantity: 1, // Khởi tạo số lượng là 1
+                        img: productDetails.imageUrl // Đảm bảo lấy đúng đường dẫn hình ảnh
+                    });
+                }
+            } else {
+                // Nếu sản phẩm chưa có, thêm mới vào giỏ hàng
+                cartItems.push({
+                    id: productId,
+                    name: productDetails.name,
+                    price: parseFloat(productDetails.price.replace(/[^0-9]+/g, "")), // Lấy giá trị số
+                    quantity: 1, // Khởi tạo số lượng là 1
+                    img: productDetails.imageUrl // Đảm bảo lấy đúng đường dẫn hình ảnh
+                });
+            }
+
+            // Lưu giỏ hàng vào localStorage
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        });
+    </script>
+
+    <script src="../js/DOM.js"></script>
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <script src="../slick-1.8.1/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="../swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>

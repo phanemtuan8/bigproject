@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="../css/DOM.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick-theme.css" />
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        .icon_cart {
+            display: none !important;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        
+        .cart-container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        
+        .cart-item-info {
+            flex-grow: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .cart-item-price {
+            color: #666;
+        }
+        
+        .cart-item-total {
+            margin: 0px !important;
+            padding: 0px 20px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .cart-summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .checkout-btn,
+        .apply-coupon-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .checkout-btn:hover,
+        .apply-coupon-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .coupon-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #coupon-input {
+            margin-top: 10px;
+            padding: 8px;
+            width: calc(100% - 20px);
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .container-payment-method {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+        
+        .cart-item-quantity span {
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" style="margin-bottom:0"></div>
+    <nav class="navbar-expand-sm bg-dark navbar-dark sticky-top align-center headerweb"></nav>
+    <div class="cart-container">
+        <h1>Giỏ Hàng</h1>
+        <div class="cart-items">
+            <!-- Sản phẩm trong giỏ hàng sẽ hiển thị ở đây -->
+        </div>
+
+        <!-- Mã giảm giá -->
+        <div class="coupon-section">
+            <button class="apply-coupon-btn" onclick="toggleCouponInput()">Nhập mã giảm giá</button>
+            <input type="text" id="coupon-input" placeholder="Nhập mã giảm giá (có thể nhập DISCOUNT10)" class="hidden" />
+            <button class="apply-coupon-btn hidden" onclick="applyCoupon()">Áp dụng</button>
+        </div>
+
+        <!-- Tóm tắt giỏ hàng -->
+        <div class="cart-summary">
+            <p>Tổng tiền: <span id="total-price">0</span> VND</p>
+            <div class="container-payment-method">
+                <p>Phương thức thanh toán:</p>
+                <select id="payment-method">
+                <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+                <option value="bank">Chuyển khoản ngân hàng</option>
+                </select>
+            </div>
+
+            <button class="checkout-btn">Thanh Toán</button>
+        </div>
+    </div>
+
+    <script>
+        // Lấy dữ liệu giỏ hàng từ localStorage
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // Biến giảm giá
+        let discount = 0;
+
+        function formatCurrency(number) {
+            return number.toLocaleString() + " VND";
+        }
+
+        // Hàm hiển thị giỏ hàng
+        function displayCartItems() {
+            const cartItemsContainer = document.querySelector('.cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="cart-item-info">
+                        <p class="cart-item-name">${item.name}</p>
+                        <p class="cart-item-price">${formatCurrency(item.price)}</p> <!-- Định dạng giá sản phẩm -->
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn" onclick="updateQuantity('${item.name}', -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" onclick="updateQuantity('${item.name}', 1)">+</button>
+                    </div>
+                    <p class="cart-item-total">${formatCurrency(item.price * item.quantity)}</p> <!-- Định dạng tổng giá -->
+                    <button class="quantity-btn" onclick="removeItem('${item.name}')">Xóa</button>
+                `;
+
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            updateTotalPrice();
+        }
+
+        // Hàm cập nhật số lượng sản phẩm
+        function updateQuantity(name, amount) {
+            const item = cartItems.find(item => item.name === name);
+            if (!item) return;
+
+            item.quantity += amount;
+            if (item.quantity < 1) item.quantity = 1;
+
+            displayCartItems();
+        }
+
+        // Hàm xóa sản phẩm khỏi giỏ hàng
+        function removeItem(name) {
+            const itemIndex = cartItems.findIndex(item => item.name === name);
+            if (itemIndex !== -1) {
+                cartItems.splice(itemIndex, 1);
+                displayCartItems();
+            }
+        }
+
+        // Hàm cập nhật tổng tiền
+        function updateTotalPrice() {
+            const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+            const finalPrice = totalPrice - discount;
+            document.getElementById('total-price').textContent = finalPrice.toLocaleString();
+        }
+
+        // Hàm toggle ô nhập mã giảm giá
+        function toggleCouponInput() {
+            document.getElementById('coupon-input').classList.toggle('hidden');
+            document.querySelector('.apply-coupon-btn.hidden').classList.toggle('hidden');
+        }
+
+        // Hàm áp dụng mã giảm giá
+        function applyCoupon() {
+            const couponInput = document.getElementById('coupon-input').value.trim();
+            if (couponInput === 'DISCOUNT10') {
+                discount = 10000; // Giảm giá 10.000 VND cho mã này
+                alert('Mã giảm giá áp dụng thành công!');
+            } else {
+                discount = 0;
+                alert('Mã giảm giá không hợp lệ!');
+            }
+            updateTotalPrice();
+        }
+
+        // Khởi tạo hiển thị giỏ hàng
+        displayCartItems();
+    </script>
+    <script src="../js/DOM.js"></script>
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <script src="../slick-1.8.1/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="../swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>
