@@ -20,7 +20,7 @@ body {
 
 .main-login,
 .main-register {
-    background-image: url('../img/185092-874643408.mp4');
+    background-image: url('../img/background.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -48,7 +48,7 @@ body {
 
 .main_body-register {
     top: 15%;
-    height: 670px;
+    height: 730px;
 }
 
 .text_register,
@@ -80,7 +80,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 30px !important;
     position: relative;
     width: 300px;
 }
