@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="../css/DOM.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../slick-1.8.1/slick-1.8.1/slick/slick-theme.css" />
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        .main_web {
+            height: 750px;
+            max-width: 1500px !important;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .member {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .member-image {
+            width: 100px;
+            /* Chiều rộng của hình */
+            height: 150px;
+            /* Chiều cao của hình lớn hơn chiều rộng */
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        
+        .member-info {
+            flex-grow: 1;
+            /* Để phần thông tin chiếm không gian còn lại */
+        }
+        
+        .member h2 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .footer {
+            /* background-color: #f8f9fa; */
+            border-top: 1px solid #56565f;
+            padding: 40px 0;
+            margin: 0px 100px;
+            width: calc(100% - 200px);
+            bottom: 0;
+        }
+        
+        .footer h5 {
+            font-weight: bold;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer .contact-us {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer .social-icons a {
+            margin-right: 15px;
+            color: #333;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" style="margin-bottom:0"></div>
+    <nav class="navbar-expand-sm bg-dark navbar-dark sticky-top align-center headerweb"></nav>
+
+    <div class="container main_web">
+        <h1>Thông Tin Thành Viên</h1>
+        <div class="member">
+            <img src="../img/pat.jpg" alt="Thành viên A" class="member-image">
+            <div class="member-info">
+                <h2>Thành Viên Phan Anh Tuấn</h2>
+                <p><strong>Mã sinh viên:</strong> 22703341</p>
+                <p><strong>Trường:</strong> ĐH Công Nghiệp Tp.HCM</p>
+                <p><strong>Khoa:</strong> Khoa Công Nghệ Thông Tin</p>
+                <p><strong>Sdt:</strong> 0355.095.013</p>
+                <p><strong>Sở thích:</strong> Chơi game, Đọc sách</p>
+            </div>
+        </div>
+        <div class="member">
+            <img src="../img/qk.png" alt="Thành viên B" class="member-image">
+            <div class="member-info">
+                <h2>Thành Viên Nguyễn Quang Khải</h2>
+                <p><strong>Mã sinh viên:</strong> 22710571</p>
+                <p><strong>Trường</strong> ĐH Công Nghiệp Tp.HCM</p>
+                <p><strong>Khoa:</strong> Khoa Công Nghệ Thông Tin</p>
+                <p><strong>Sdt:</strong> 0855.370.246</p>
+                <p><strong>Sở thích:</strong> Chơi game, Đọc sách</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron text-center footer" style="margin-bottom:0">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: Contact Information -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="contact-us">
+                        <div><span class="label">Address:</span> IUH, SAI GON, VIET NAM</div>
+                        <div><span class="label">Phone:</span> (84) 355-095-013</div>
+                        <div><span class="label">Email:</span> phananhtuan302@gmail.com</div>
+                    </ul>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Social Media -->
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                        <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                        <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                        <a href="#" class="fab fa-linkedin-in" aria-label="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <p>&copy; 2024 Cong Ty cua Tuan va Khai nha :D.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../js/DOM.js"></script>
+    <script src="../bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <script src="../slick-1.8.1/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="../swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>

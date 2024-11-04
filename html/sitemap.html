@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemap with Border-to-Border Lines</title>
+    <title>Sitemap</title>
     <style>
         * {
             margin: 0;
@@ -96,10 +96,12 @@
                 <a href="./home.html" id="home">Home</a>
             </div>
             <div class="site_item2">
-                <a href="#" id="camera">Máy Ảnh</a>
+                <a href="./camera-DSLR.html" id="camera">Máy Ảnh</a>
                 <a href="./promotion.html" id="promotion">Khuyến Mãi</a>
                 <a href="./news.html" id="news">Tin Tức</a>
                 <a href="./login.html" id="login">Đăng nhập/Đăng ký</a>
+                <a href="./cart.html" id="cart">Giỏ hàng</a>
+                <a href="./tvth.html" id="tvth">Liên Hệ</a>
             </div>
             <div class="site_item3">
                 <a href="./camera-DSLR.html" id="dslr">Máy Ảnh DSLR</a>
@@ -167,7 +169,7 @@
             const camera = document.getElementById("camera");
 
             // Elements in site_item2 and site_item3 to connect
-            const siteItem2Elements = ["camera", "promotion", "news", "login"].map(id => document.getElementById(id));
+            const siteItem2Elements = ["camera", "promotion", "news", "login", "cart", "tvth"].map(id => document.getElementById(id));
             const siteItem3Elements = ["dslr", "mirrorless", "compact", "instax", "medium", "film"].map(id => document.getElementById(id));
 
             // Draw lines from Home to items in site_item2

@@ -22,6 +22,7 @@ function headerweb() {
                     <div><a class="navbar-brand menu-item m-0" href="./promotion.html">Khuyến Mãi</a></div>
                     <div><a class="navbar-brand menu-item m-0" href="./news.html">Tin Tức</a></div>
                     <div><a class="navbar-brand menu-item m-0" href="./sitemap.html">Site Map</a></div>
+                    <div><a class="navbar-brand menu-item m-0" href="./tvth.html">Liên hệ</a></div>
                 </div>
 
                 <div class="navbar-right col-4">
